@@ -42,7 +42,7 @@ class LoginController extends Controller
     
     /*27-03*/
     
-    public function login(Request $request)
+    /*public function login(Request $request)
     {
         $request->validate([
             'email' => 'required',
@@ -58,5 +58,5 @@ class LoginController extends Controller
         }
 
         return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
-    }
+    }*/
 }
