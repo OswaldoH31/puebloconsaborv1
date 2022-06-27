@@ -73,11 +73,11 @@
                     <label for="">Sexo</label>
 
                     <div class="sexo">
-                        <input type="radio" class="form-check-input" name="Genero" id="genderM" value="Masculino">
+                        <input type="radio" class="form-check-input" name="Genero" id="genderM" value="Masculino" {{(old('Genero') == "Masculino") ? "checked":""}}>
                         <label class="form-check-label" for="genderM"> M </label>
                     </div>
                     <div class="sexo">
-                        <input type="radio" class="form-check-input" name="Genero" id="genderF" value="Femenino">
+                        <input type="radio" class="form-check-input" name="Genero" id="genderF" value="Femenino" {{(old('Genero') == "Femenino") ? "checked":""}}>
                         <label class="form-check-label" for="genderF"> F </label>
                     </div>
                     <div class="gender-v">
@@ -135,7 +135,7 @@
                     <select class="TipoU @error('Rol_id') is-invalid @enderror" name="Rol_id" >
                         <option selected>Selecciona</option>
                         @foreach ($roles as $rol)
-                            <option value="{{$rol['id']}}">{{$rol['name']}}</option>
+                            <option value="{{$rol['id']}}" {{(old('Rol_id') == $rol['id']) ? 'selected':''}} >{{$rol['name']}}</option>
                         @endforeach
                     </select>
                     @if ($errors->has('Rol_id'))
@@ -173,9 +173,9 @@
                         <div class="underline"></div>
                         
                         <label for="">Contraseña</label>
-                        @if ($errors->has('password'))
+                        {{-- @if ($errors->has('password'))
                             <span class="error text-danger" for="input-name">{{$errors->first('password')}}</span>
-                        @endif
+                        @endif --}}
                     </div>
 
                     {{-- <input type="checkbox" onclick="myFuction()">Ver ontraseña --}}
@@ -184,7 +184,17 @@
                     <div class="input-data"></div>
                 </div>
                 
-                
+                @if (count($errors) > 0)
+                    <div class="validacion">
+                        <div class="error text-danger">
+                            <ul>
+                                @foreach ($errors->get('password') as $message)
+                                    <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                @endif
 
 
                 <div class="form-row">

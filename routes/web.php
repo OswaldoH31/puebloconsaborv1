@@ -92,7 +92,7 @@ Route::put('/profile', [App\Http\Controllers\PerfilController::class, 'update'])
 
 /*Se agrego 19-06*/
 Route::get('/verificar', [App\Http\Controllers\PerfilController::class,'login'])->name('verificar');
-Route::get('/verificar', [App\Http\Controllers\PerfilController::class,'verificarAdmin'])->name('verificarAdmin');
+Route::get('/verificar', [App\Http\Controllers\PerfilController::class,'verificarAdmin'])->name('verificar.verificarAdmin');
 Route::get('/verificar', [App\Http\Controllers\PerfilController::class,'verificarUsuario'])->name('verificarUsuario');
 
 

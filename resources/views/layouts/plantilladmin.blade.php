@@ -131,7 +131,7 @@
                                             {{ __('Logout') }}
                                         </a>
                                         
-                                        <a class="dropdown-item" href="{{url('/profileAdmin')}}">Configuracion Perfil</a>
+                                        <a class="dropdown-item" href="{{route('profile.editAdmin')}}">Configuracion Perfil</a>
                                         
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
