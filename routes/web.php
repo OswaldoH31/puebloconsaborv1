@@ -65,6 +65,15 @@ Route::get('2fa/reset', [App\Http\Controllers\UserCodeController::class, 'resend
 
 
 
+Route::get('2fa', [App\Http\Controllers\UserCodeController::class, 'indexAdmin'])->name('2fa.indexAdmin');
+Route::post('2fa', [App\Http\Controllers\UserCodeController::class, 'storeAdmin'])->name('2fa.postAdmin');
+
+
+Route::get('2fa', [App\Http\Controllers\UserCodeController::class, 'indexUsuario'])->name('2fa.indexUsuario');
+Route::post('2fa', [App\Http\Controllers\UserCodeController::class, 'storeUsuario'])->name('2fa.postUsuario');
+
+
+
 Route::get('/Preguntasecreta', [App\Http\Controllers\PreguntaController::class, 'index']);
 Route::post('preguntasecreta', [PreguntaController::class,'store'])->name('pregunta.store');
 
@@ -76,8 +85,19 @@ Route::resource('/Usuario', UsuariosController::class);
 
 Route::get('/buscar',[App\Http\Controllers\MenuController::class,'search'])->name('buscar.show');
 
-Route::get('/profile', [App\Http\Controllers\PerfilController::class,'edit'])->name('profile.edit');
+Route::get('/perfil', [App\Http\Controllers\PerfilController::class,'edit'])->name('profile.edit');
 Route::put('/profile', [App\Http\Controllers\PerfilController::class, 'update'])->name('profile.update');
+
+
+
+/*Se agrego 19-06*/
+Route::get('/verificar', [App\Http\Controllers\PerfilController::class,'login'])->name('verificar');
+Route::get('/verificar', [App\Http\Controllers\PerfilController::class,'verificarAdmin'])->name('verificarAdmin');
+Route::get('/verificar', [App\Http\Controllers\PerfilController::class,'verificarUsuario'])->name('verificarUsuario');
+
+
+
+
 
 Route::get('/profileAdmin', [App\Http\Controllers\PerfilController::class,'editAdmin'])->name('profile.editAdmin');
 Route::put('/profileAdmin', [App\Http\Controllers\PerfilController::class, 'updateAdmin'])->name('profile.updateAdmin');
