@@ -43,9 +43,7 @@
 
 
 @section('content')
-    <div id="app">
-        <Appi/>
-    </div>
+    
 <div class="seccionT"><h2 class="titulo">Lo Mejor</h2></div>
 <div class="secciones1"> 
         

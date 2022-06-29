@@ -25,6 +25,10 @@
     </form>
     </div>  --}}
 
+    <div id="app">
+        <App/>
+    </div>
+
     <div class="conteus">
         <form class="for-bus" action="{{route('Locales.show')}}" method="get">
             <div class="buscar-us">
