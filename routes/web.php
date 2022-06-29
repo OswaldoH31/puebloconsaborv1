@@ -3,7 +3,7 @@
 use App\Http\Controllers\Indexcontroller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Proveedorcontroller;
-use App\Http\Controllers\Admincontroller;
+
 use App\Http\Controllers\AvisoPrivacidadController;
 use App\Http\Controllers\BebidaController;
 use App\Http\Controllers\BotManController;

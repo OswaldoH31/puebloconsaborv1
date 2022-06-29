@@ -11,6 +11,11 @@
 
 @section('title','Locales')
 @section('content')
+
+<div id="app">
+    <Appi/>
+</div>
+
 <div class="contebus">
     {{-- <div class="sec-bus">
     <form class="for-bus" action="{{route('Locales.show')}}" method="get" >
@@ -25,9 +30,7 @@
     </form>
     </div>  --}}
 
-    <div id="app">
-        <App/>
-    </div>
+    
 
     <div class="conteus">
         <form class="for-bus" action="{{route('Locales.show')}}" method="get">

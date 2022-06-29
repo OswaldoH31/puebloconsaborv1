@@ -51,7 +51,7 @@
         data(){
             return{
                 todos:[],
-                api:'http://localhost:8000/api/todos',
+                api:'http://localhost:8000/api/Listadolocales',
                 todo_input:'',
                 edit_todo_id:'',
                 edit_index:'',
