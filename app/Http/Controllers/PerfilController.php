@@ -12,6 +12,38 @@ use Illuminate\Support\Facades\DB;
 
 class PerfilController extends Controller
 {
+
+    public function login(Request $request)
+    {
+       
+        auth()->user()->generateCode();
+
+        return redirect()->route('2fa.index');
+
+        //return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+    }
+
+    public function verificarAdmin(Request $request)
+    {
+       
+        auth()->user()->generateCode();
+
+        return redirect()->route('2fa.indexAdmin');
+
+        //return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+    }
+
+    public function verificarUsuario(Request $request)
+    {
+       
+        auth()->user()->generateCode();
+
+        return redirect()->route('2fa.indexUsuario');
+
+        //return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+    }
+
+    
     public function edit(Request $request){
 
         $datos['pies']=Pie::paginate(1);

@@ -112,7 +112,7 @@
                                             {{ __('Logout') }}
                                         </a>
                                         
-                                        <a class="dropdown-item" href="{{ route('profile.edit') }}">Configuracion Perfil</a>
+                                        <a class="dropdown-item" href="{{ route('verificarUsuario') }}">Configuracion Perfil</a>
                                         
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -149,6 +149,9 @@
     </script>
     
     <script src="//code.tidio.co/igdbvhu7rhin1nfnhn74rgzzb6rfxev5.js" async></script>
+
+    {{-- Vue --}}
+    <script src="{{ asset('js/app.js') }}" defer></script>
     
     
 </body>
