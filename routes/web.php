@@ -38,6 +38,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/Listadolocales', function () {
+    return view('welcome');
+})->where('any','.*');
 
 Route::get('/',[Indexcontroller::class,'index']);
 
@@ -108,7 +111,7 @@ Route::get('HuejutlaA/{HuejutlaA}/edit', [HuejutlaController::class,'edit'])->na
 Route::patch('HuejutlaA/{HuejutlaA}', [HuejutlaController::class,'update']);
 
 
-Route::get('/Listadolocales',[LocalController::class,'show'])->name('Locales.show');
+//Route::get('/Listadolocales',[LocalController::class,'show'])->name('Locales.show');
 Route::get('/Listadousuarios',[UsuariosController::class,'index'])->name('Usuarios.index');
 
 

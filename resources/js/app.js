@@ -23,7 +23,5 @@ Vue.component('Appi', require('./components/ExampleComponent.vue').default);
 
 const app = new Vue({
     el: '#app',
-    //components: {App},
-    //router
 });
 

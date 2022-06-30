@@ -84,7 +84,7 @@
                                 Listado
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('Locales.show')}}">Lista de Locales</a>
+                                <a class="dropdown-item" href="{{url('/Listadolocales')}}">Lista de Locales</a>
                                 <a class="dropdown-item" href="{{route('Usuarios.index')}}">Lista de Usuarios</a>
                                 <a class="dropdown-item" href="{{route('Solicitudes.index')}}">Solicitudes</a>
                             </div>
