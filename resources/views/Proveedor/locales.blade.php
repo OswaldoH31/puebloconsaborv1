@@ -27,7 +27,7 @@
                                 </div>
                                 <div  class="centro-1">
                                     <div class="nombre-L">
-                                        <a href="{{url('Menu/'.$local->id)}}"><h1 class="titulo-l">{{$local->nombre}}</h1></a>
+                                        <a><h1 class="titulo-l">{{$local->nombre}}</h1></a>
                                         
                                         <div class="Cal-SepL">
                                             <form class="cal-1-2">
@@ -63,7 +63,9 @@
                                     <div class="estadoLocal">
                                         @if($local->estado == 1)
                                             <button type="button" class="btn  btn-lg  btn-success" >Aceptado</button>
-                                            @else
+                                        @elseif($local->estado == 2)
+                                            <button type="button" class="btn btn-lg btn-danger">Cancelado</button>
+                                        @else
                                             <button type="button" class="btn btn-lg btn-danger">Rechazado</button>
                                         @endif
                                     </div>
@@ -72,16 +74,33 @@
 
                                 <div  class="derecha-1">
                                     <div class="btn-L">
-                                        <button class="button11" type="submit"><a class="btnEditar" href="{{url('Locales/'.$local->id.'/edit')}}">Editar</a></button>
-                                    </div>
-
-                                    <div>
-                                        <form action="{{url('Locales/'.$local->id)}}" method="post">
+                                       
+                                    
+                                        <button class="buttonMenu" type="submit"><a class="btnMenu" href="{{url('Menu/'.$local->id)}}"><i class="fas fa-utensils"></i> Menú</a></button>
+                                        <button class="buttonMenu" type="submit"><a class="btnMenu" href="{{url('Locales/'.$local->id.'/edit')}}"><i class="fas fa-edit"></i> Editar</a></button>
+                                        
+                                       <form action="{{route('local.cancelar',$local->id)}}" method="post" class="cancelar-local">
+                                            @csrf
+                                                @if($local->estado == 1)
+                                                    <button class="buttonMenu" type="submit"><a class="btnMenu"><i class="fas fa-ban"></i> Cancelar</a></button>
+                                                    @elseif(($local->estado == 2))
+                                                        <button class="buttonMenu" type="submit"><a class="btnMenu"><i class="fas fa-arrow-up"></i> Reactivar</a></button>
+                                                    @else
+                                                        
+                                                @endif
+                                        </form>
+                                        
+                                       <form action="{{url('Locales/'.$local->id)}}" method="post" class="eliminar-local">
                                             @csrf
                                             {{ method_field('DELETE')}}
-                                            <input class="button2" type="submit" onclick="return confirm('¿Quieres Borrar?')" class="btnEditar" value="Eliminar">
+                                           
+                                             <button class="buttonMenu" type="submit"><a class="btnMenu"><i class="fas fa-trash"></i></i> Eliminar</a></button>
+                                       
                                         </form>
+                                        
                                     </div>
+                                    
+                                    
                                 </div>
                             </div>
                         </div>
@@ -93,3 +112,100 @@
 
 
 @endsection
+
+
+@section('js')
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if(session('eliminar') == 'ok')
+        <script>
+            Swal.fire(
+              'Eliminado!',
+              'Su local ha sido eliminado.',
+              'success'
+            )
+        </script>
+        @elseif(session('cancelar') == 'ok')
+            <script>
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Actualizado Correctamente',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+            </script>
+        @elseif(session('actualizar') == 'ok')
+            <script>
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Actualizado Correctamente',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+            </script>
+        @elseif(session('agregar') == 'ok')
+            <script>
+                Swal.fire({
+                  position: 'center',
+                  icon: 'success',
+                  title: 'Se registro correctamente',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+            </script>
+        @else
+ 
+    @endif
+
+    <script>
+    
+    
+         $('.cancelar-local').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+              title: '¿Estas seguro?',
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Aceptar',
+              cancelButtonText: 'Cancelar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.submit();
+              }
+            })
+        });
+        
+    
+        $('.eliminar-local').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+              title: '¿Estas seguro?',
+              text: "¡No podrás revertir esto!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Eliminar',
+              cancelButtonText: 'Cancelar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.submit();
+              }
+            })
+        });
+        
+        
+       
+    </script>
+
+
+    
+@endsection
+
+
+

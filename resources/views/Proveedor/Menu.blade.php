@@ -9,12 +9,23 @@
 @endsection
 
 
+
 @section('content1')
 
 
 <div>
     <div class="seccionT">
     <h2 class="titulo">{{$local->nombre}}</h2>
+    <div class="row-2-C1">
+        <div class="regresar">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjIxOS4yNzJweCIgaGVpZ2h0PSIyMTkuMjcxcHgiIHZpZXdCb3g9IjAgMCAyMTkuMjcyIDIxOS4yNzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIxOS4yNzIgMjE5LjI3MTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTEyMC43NzQsMTc5LjI3MXY0MGM0Ny4zMDMsMCw4NS43ODQtMzguNDgyLDg1Ljc4NC04NS43ODVjMC00Ny4zLTM4LjQ4MS04NS43ODItODUuNzg0LTg1Ljc4Mkg4OS4yODJMMTA4LjcsMjguMjg2DQoJCUw4MC40MTcsMEwxMi43MTMsNjcuNzAzbDY3LjcwMyw2Ny43MDFsMjguMjgzLTI4LjI4NEw4OS4yODIsODcuNzAzaDMxLjQ5MmMyNS4yNDYsMCw0NS43ODQsMjAuNTM4LDQ1Ljc4NCw0NS43ODMNCgkJQzE2Ni41NTgsMTU4LjczLDE0Ni4wMiwxNzkuMjcxLDEyMC43NzQsMTc5LjI3MXoiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
+            <a class="T-U" href="{{route('local.locales')}}"> Regresar</a>
+        </div>
+        
+        <div class="cont-m1">
+            <button class="button"><a class="btnMenu" style="color: white;" href="{{url('Menu/'.$local->id.'/agregarmenu')}}">Agregar Menú</a></button>
+        </div>
+    </div>
 </div>
 <div class="Menu-Sp">
                 
@@ -42,14 +53,14 @@
     <div class="row-4-P">
         <div class="inf-m">
             <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIwNC4yMzIgMjA0LjIzMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjA0LjIzMiAyMDQuMjMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBkPSJNNC41OTUsMTgxLjcxaDE5NS4wMjFjMi41MzgsMCw0LjU5NS0yLjA1Nyw0LjU5NS00LjU5NXYtNC4xMzZjMC4wMDMtMC4wNjksMC4wMjEtMC4xMzMsMC4wMjEtMC4yMDMNCgljMC0wLjc1LTAuMTgtMS40NTgtMC40OTktMi4wODNsLTE5Ljk0Mi01MC4yVjI3LjExNmMwLTIuNTM4LTIuMDU3LTQuNTk1LTQuNTk1LTQuNTk1SDI1LjAxNmMtMi41MzgsMC00LjU5NSwyLjA1Ny00LjU5NSw0LjU5NQ0KCXY5My4zNzdMMC4zMjQsMTcxLjA4Yy0wLjA5LDAuMjI2LTAuMTUzLDAuNDU3LTAuMjA2LDAuNjljLTAuMDEzLDAuMDU5LTAuMDIzLDAuMTE4LTAuMDM0LDAuMTc4Yy0wLjA1LDAuMjY4LTAuMDgxLDAuNTM5LTAuMDgyLDAuODENCgljMCwwLjAwNi0wLjAwMiwwLjAxMi0wLjAwMiwwLjAxOHY0LjMzOUMwLDE3OS42NTMsMi4wNTcsMTgxLjcxLDQuNTk1LDE4MS43MXogTTgyLjM0MywxNjYuODgxbDQuMjA0LTEzaDMxLjExN2w0LjIwNCwxM0g4Mi4zNDN6DQoJIE0zMy45MywzNC4yNDRoMTM2LjM1MnY4MEgzMy45M1YzNC4yNDR6Ii8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
-            <a class="T-U" href="">Pagina web</a>
+            <a class="T-U" href="{{$local->sitioweb}}" target="_blank">Página web</a>
         </div>
     </div>
 
     <div class="row-5-M">
         <div class="inf-m">
             <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik00OTguNjgyLDQzNS4zMjZMMjk3LjkxNywyMzQuNTZMNjMuMzU3LDBINDUuMDI2bC0zLjc0Myw5LjUxMWMtOS44NzksMjUuMTA0LTE0LjEsNTAuNzgtMTIuMjA1LDc0LjI0OQ0KCQkJYzIuMTYsMjYuNzUyLDEyLjMyMyw0OS45MTMsMjkuMzkyLDY2Ljk4MkwyNDEuNTgsMzMzLjg1MmwyNC4xNTItMjQuMTUybDE2OS4yODUsMTg5LjI5M2MxNi44NCwxNi44NCw0NS44MjUsMTcuODQsNjMuNjY1LDANCgkJCUM1MTYuMjM2LDQ4MS40MzksNTE2LjIzNiw0NTIuODc5LDQ5OC42ODIsNDM1LjMyNnoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCgk8Zz4NCgkJPHBhdGggZD0iTTE1Ni43MjgsMjkxLjQ0MkwxMy4zMTcsNDM0Ljg1M2MtMTcuNTUyLDE3LjU1Mi0xNy41NTIsNDYuMTEzLDAsNjMuNjY1YzE2LjY3NCwxNi42NzQsNDUuNTE5LDE4LjE0Niw2My42NjUsMA0KCQkJbDE0My40MTItMTQzLjQxMkwxNTYuNzI4LDI5MS40NDJ6Ii8+DQoJPC9nPg0KPC9nPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik00OTAuMjUzLDg1LjI0OWwtODEuMzUxLDgxLjM1bC0yMS4yMjMtMjEuMjIybDgxLjM1MS04MS4zNTFsLTIxLjIyMi0yMS4yMjJsLTgxLjM1LDgxLjM1bC0yMS4yMjItMjEuMjIybDgxLjM1MS04MS4zNQ0KCQkJTDQwNS4zNjYsMC4zNjFMMjk5LjI1NiwxMDYuNDcxYy0xMi45ODEsMTIuOTgxLTIwLjczMiwzMC4yMTctMjEuODI4LDQ4LjUzNWMtMC4yNzcsNC42NDEtMS4zMjksOS4yMDYtMy4wNzQsMTMuNTQ4bDY4LjkyOSw2OC45MjkNCgkJCWM0LjM0Mi0xLjc0Nyw4LjkwOC0yLjc5OCwxMy41NDgtMy4wNzVjMTguMzE4LTEuMDkzLDM1LjU1NC04Ljg0Niw0OC41MzUtMjEuODI3bDEwNi4xMS0xMDYuMTA5TDQ5MC4yNTMsODUuMjQ5eiIvPg0KCTwvZz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
-            <a class="T-U" href="Menu">Menu</a>
+            <a class="T-U" href="Menu" target="_blank">Menú</a>
         </div>
     </div>
     
@@ -96,7 +107,7 @@
              <div class="MenuEsp">
                 <div class="MenuT">
                     <div>
-                        <label class="Menu-M">Menu</label>
+                        <label class="Menu-M">Menú</label>
                     </div>
                 </div>
                 <div>
@@ -108,7 +119,7 @@
             <div class="MenuEsp">
                 <div class="MenuT">
                     <div>
-                        <label class="Menu-M">Menu</label>
+                        <label class="Menu-M">Menú</label>
                     </div>
                 </div>
 
@@ -140,10 +151,25 @@
                                             
                                             <div class="Caract-1">
                                                 <div class="Caract-2">
-                                                    <label class="C-Z">{{$Platillo->Nombre}}</label> 
+                                                    <label class="C-Z">{!! ( $Platillo->Nombre )!!}</label> 
                                                 </div>
                                                 <div>
                                                     <label class="C-C">Costo: </label><label style="margin-left: 10px"> ${{$Platillo->Costo}}</label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="btn-M">
+                                                <div class="Caract-2"> 
+                                                    <button class="buttonMenuP-B" type="submit"><a class="btnMenu" href="{{url('Listaplatillos/'.$Platillo->id.'/edit')}}"><i class="fas fa-edit"></i> Editar</a></button>
+                                                </div>
+                                                <div>
+                                                    <form action="{{url('Listaplatillos/'.$Platillo->id)}}" method="post" class="eliminar">
+                                                        @csrf
+                                                        {{ method_field('DELETE')}}
+                                                        <div class="btnactualizar">
+                                                            <button class="buttonMenuP-B" type="submit"><a class="btnMenu"><i class="fas fa-trash"></i></i> Eliminar</a></button>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -177,6 +203,22 @@
                                                     <label class="C-C">Costo: </label><label style="margin-left: 10px"> ${{$Bebida->Costo}}</label>
                                                 </div>
                                             </div>
+                                            
+                                            <div class="btn-M">
+                                                <div class="Caract-2"> 
+                                                    <button class="buttonMenuP-B" type="submit"><a class="btnMenu" href="{{url('Listabebidas/'.$Bebida->id.'/edit')}}"><i class="fas fa-edit"></i> Editar</a></button>
+                                                </div>
+                                                <div>
+                                                    <form action="{{url('Listabebidas/'.$Bebida->id)}}" method="post" class="eliminar">
+                                                        @csrf
+                                                        {{ method_field('DELETE')}}
+                                                        <div class="btnactualizar">
+                                                            <button class="buttonMenuP-B" type="submit"><a class="btnMenu"><i class="fas fa-trash"></i></i> Eliminar</a></button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            
                                         </div>  
                                     </div>
                                 </div> 
@@ -186,6 +228,11 @@
                 
                 
                 
+                <div class="espa-l">
+                     {{$Bebidas->links()}}
+                </div>
+                
+               
                 
                                  
 
@@ -323,9 +370,7 @@
                 </div> --}}
             
             </div>
-            <div class="cont-m1">
-                <button class="button"><a class="btnMenu" href="{{url('Menu/'.$local->id.'/agregarmenu')}}">Agregar Menu</a></button>
-            </div>
+            
         {{-- @else --}} 
             
             
@@ -340,7 +385,7 @@
         <div class="div-S">
             <div class="div-U">
                 <div class="Tit-Card">
-                    <label class="Tit-Ar">Ubicacion e Informacion del contacto</label>
+                    <label class="Tit-Ar">Ubicación e Información del contacto</label>
                 </div>
                 <div class="div-img">
                     <img class="div-ub" src="{{asset('imagenes/ubicacion.png')}}">
@@ -359,7 +404,7 @@
 
                     <div class="row-1">
                         <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDIwNC4yMzIgMjA0LjIzMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjA0LjIzMiAyMDQuMjMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBkPSJNNC41OTUsMTgxLjcxaDE5NS4wMjFjMi41MzgsMCw0LjU5NS0yLjA1Nyw0LjU5NS00LjU5NXYtNC4xMzZjMC4wMDMtMC4wNjksMC4wMjEtMC4xMzMsMC4wMjEtMC4yMDMNCgljMC0wLjc1LTAuMTgtMS40NTgtMC40OTktMi4wODNsLTE5Ljk0Mi01MC4yVjI3LjExNmMwLTIuNTM4LTIuMDU3LTQuNTk1LTQuNTk1LTQuNTk1SDI1LjAxNmMtMi41MzgsMC00LjU5NSwyLjA1Ny00LjU5NSw0LjU5NQ0KCXY5My4zNzdMMC4zMjQsMTcxLjA4Yy0wLjA5LDAuMjI2LTAuMTUzLDAuNDU3LTAuMjA2LDAuNjljLTAuMDEzLDAuMDU5LTAuMDIzLDAuMTE4LTAuMDM0LDAuMTc4Yy0wLjA1LDAuMjY4LTAuMDgxLDAuNTM5LTAuMDgyLDAuODENCgljMCwwLjAwNi0wLjAwMiwwLjAxMi0wLjAwMiwwLjAxOHY0LjMzOUMwLDE3OS42NTMsMi4wNTcsMTgxLjcxLDQuNTk1LDE4MS43MXogTTgyLjM0MywxNjYuODgxbDQuMjA0LTEzaDMxLjExN2w0LjIwNCwxM0g4Mi4zNDN6DQoJIE0zMy45MywzNC4yNDRoMTM2LjM1MnY4MEgzMy45M1YzNC4yNDR6Ii8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" />
-                        <a class="T-U" href="">Pagina web</a>
+                        <a class="T-U" href="{{$local->sitioweb}}" target="_blank">Página web</a>
                     </div>
 
                     <div class="row-1">
@@ -418,7 +463,7 @@
     
             <div class="div-C">
                 <div class="Tit-Card">
-                    <label class="Tit-Ar3">Calificacion y Opiniones</label>
+                    <label class="Tit-Ar3">Calificación y Opiniones</label>
                 </div>
                 <div class="C-Pd">
                     <div class="row-1-1-1">
@@ -577,7 +622,7 @@
     </div>
 
 
-    <div class="MenuEsp">
+    <div class="MenuEspOpinion">
         <div class="Opinion-1">
             <div class="Opinion">
                 <div class="der-o">
@@ -789,6 +834,99 @@
         
     </div>
     
-
     
 @endsection
+
+
+@section('js')
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    @if(session('success') == 'Bebida')
+        <script>
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Bebida registrado correctamente',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        </script>
+    @elseif(session('success') == 'Platillo')
+        <script>
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Platillo registrado correctamente',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        </script>
+    @elseif(session('success') == 'elimino-bebida')
+        <script>
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Bebida eliminado correctamente',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        </script>
+    @elseif(session('success') == 'elimino-platillo')
+        <script>
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Platillo eliminado correctamente',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        </script>
+    @elseif(session('success') == 'actualizarpb')
+        <script>
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Actualizado correctamente',
+              showConfirmButton: false,
+              timer: 1500
+            })
+        </script>
+    @else
+    
+        
+    @endif
+
+
+    <script>
+    
+        $('.eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+              title: '¿Estas seguro?',
+              text: "¡No podrás revertir esto!",
+              icon: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Eliminar',
+              cancelButtonText: 'Cancelar'
+            }).then((result) => {
+              if (result.isConfirmed) {
+                this.submit();
+              }
+            })
+        });
+        
+    </script>
+
+    
+    
+@endsection
+
+
+
+
+
+

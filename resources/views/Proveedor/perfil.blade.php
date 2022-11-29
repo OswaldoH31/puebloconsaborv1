@@ -19,9 +19,9 @@
                     @method('PUT')
                     
                     <span class="form-row">
-                        <span class="input-data">
+                        <span class="input-data" style="line-height: 3.6;">
                             {{-- <input type="text" name="Nombre" required> --}}
-                            <input id="Nombre" type="text" @error('Nombre') is-invalid @enderror" name="Nombre" value="{{ old('Nombre') ?? $users->Nombre }}" required autocomplete="Nombre" autofocus>
+                            <input id="Nombre" type="text" @error('Nombre') is-invalid @enderror" name="Nombre" value="{{ old('Nombre') ?? $users->Nombre }}" disabled>
                             
                             @error('Nombre')
                                 <span class="invalid-feedback" role="alert">
@@ -38,9 +38,9 @@
         
         
                     <span class="form-row">
-                        <span class="input-data">
+                        <span class="input-data" style="line-height: 3.6;">
                             {{-- <input type="text" name="ApellidoPaterno" required> --}}
-                            <input id="Apellido_paterno" type="text" @error('Apellido_paterno') is-invalid @enderror" name="Apellido_paterno" value="{{ old('Apellido_paterno') ?? $users->Apellido_paterno }}" required autocomplete="Apellido_paterno" autofocus>
+                            <input id="Apellido_paterno" type="text" @error('Apellido_paterno') is-invalid @enderror" name="Apellido_paterno" value="{{ old('Apellido_paterno') ?? $users->Apellido_paterno }}" disabled>
                             
                             @error('Apellido_paterno')
                                 <span class="invalid-feedback" role="alert">
@@ -56,9 +56,9 @@
         
         
                     <span class="form-row">
-                        <span class="input-data">
+                        <span class="input-data" style="line-height: 3.6;">
                             {{-- <input type="text" name="ApellidoMaterno" required> --}}
-                            <input id="Apellido_materno" type="text" @error('Apellido_materno') is-invalid @enderror" name="Apellido_materno" value="{{ old('Apellido_materno') ?? $users->Apellido_materno }}" required autocomplete="Apellido_materno" autofocus>
+                            <input id="Apellido_materno" type="text" @error('Apellido_materno') is-invalid @enderror" name="Apellido_materno" value="{{ old('Apellido_materno') ?? $users->Apellido_materno }}" disabled>
                             
                             @error('Apellido_materno')
                                 <span class="invalid-feedback" role="alert">
@@ -78,10 +78,10 @@
                     
                     
                     <span class="form-row">
-                        <span class="input-data">
-                            <input id="email" type="email" @error('Correo_electronico') is-invalid @enderror" name="Correo_electronico" value="{{ old('Correo_electronico') ?? $users->Correo_electronico }}" required autocomplete="Correo_electronico">
+                        <span class="input-data" style="line-height: 3.6;">
+                            <input id="email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') ?? $users->email }}" disabled>
         
-                            @error('Correo_electronico')
+                            @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -96,10 +96,10 @@
         
         
                     <span class="form-row">
-                        <span class="input-data">
+                        <span class="input-data" style="line-height: 3.6;">
                             {{-- <input type="text" name="Telefono" required> --}}
                             
-                            <input id="Telefono" type="text" @error('Telefono') is-invalid @enderror" name="Telefono" value="{{ old('Telefono') ?? $users->Telefono }}" required autocomplete="Telefono" autofocus>
+                            <input id="Telefono" type="text" @error('Telefono') is-invalid @enderror" name="Telefono" value="{{ old('Telefono') ?? $telefono }}" disabled>
         
                             @error('Telefono')
                                 <span class="invalid-feedback" role="alert">
@@ -117,10 +117,10 @@
 
                     
                     <span class="form-row">
-                        <span class="input-data">
+                        <span class="input-data" style="line-height: 3.6;">
                             {{-- <input type="text" name="Usuario" required> --}}
                             
-                            <input id="user" type="text" @error('Usuario') is-invalid @enderror" name="Usuario" value="{{ old('Usuario') ?? $users->Usuario }}" required autocomplete="Usuario" autofocus>
+                            <input id="user" type="text" @error('Usuario') is-invalid @enderror" name="Usuario" value="{{ old('Usuario') ?? $users->Usuario }}" disabled>
         
                             @error('Usuario')
                                 <span class="invalid-feedback" role="alert">

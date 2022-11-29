@@ -24,6 +24,21 @@
         });
 
     });
+    
+    
+     $(document).ready(function(){
+
+    $('#inputGroupSelect02').on('change',function(){
+        var selectValor = '#'+$(this).val();
+        console.log(selectValor);
+
+        $('#distintivo').children('div').show();
+        $('#distintivo').children(selectValor).hide();
+        
+    });
+
+    });
+
 
 </script>
 
@@ -39,7 +54,7 @@
 
                             <div class="">
                                 <center>
-                                    <h2>Informacion general</h2><br>
+                                    <h2>Información general</h2><br>
                                 </center>
                                 <div class="contenido-d">
                                     <div class="seccion-i">
@@ -67,15 +82,15 @@
                                                 
                                                 <input id="Telefono" type="text" class="form-control @error('Telefono') is-invalid @enderror" name="Telefono" value="{{ old('Telefono') }}">
                                                 
-                                                @error('Telefono')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                                                 <div class="underline"></div>
                         
-                                                <label for="Telefono">Agregar numero de telefono</label>
+                                                <label for="Telefono">Agregar número de teléfono</label>
+                                                
+                                                @if ($errors->has('Telefono'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('Telefono')}}</span>
+                                                @endif
+                        
+                                                
                 
                                             </span>
                                             <span class="input-data"></span>
@@ -86,14 +101,14 @@
                                                 
                                                 <input id="sitioweb" type="text" class="form-control @error('sitioweb') is-invalid @enderror" name="sitioweb" value="{{ old('sitioweb') }}">
                                                 
-                                                @error('sitioweb')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                                                 <div class="underline"></div>
                                                 <label for="Sirtio web">Sitio web</label>
+                                                
+                                                 @if ($errors->has('sitioweb'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('sitioweb')}}</span>
+                                                @endif
+                        
+                                                
                 
                                             </span>
                                             <span class="input-data"></span>
@@ -105,15 +120,15 @@
                                                 
                                                 <input id="descripcion" type="text" class="form-control @error('descripcion') is-invalid @enderror" name="descripcion" value="{{ old('descripcion') }}">
                                                 
-                                                @error('descripcion')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                                                 <div class="underline"></div>
                         
-                                                <label for="descripcion">Descripcion</label>
+                                                <label for="descripcion">Descripción</label>
+                                                
+                                                @if ($errors->has('descripcion'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('descripcion')}}</span>
+                                                @endif
+                        
+                                                
                 
                                             </span>
                                             <span class="input-data"></span>
@@ -125,15 +140,15 @@
                                                 
                                                 <input id="CP" type="text" class="form-control @error('CP') is-invalid @enderror" name="CP" value="{{ old('CP') }}">
                                                 
-                                                @error('CP')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                                                 <div class="underline"></div>
                         
-                                                <label for="CP">Codigo Postal</label>
+                                                <label for="CP">Código Postal</label>
+                                                
+                                                @if ($errors->has('CP'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('CP')}}</span>
+                                                @endif
+                        
+                                                
                 
                                             </span>
                                         </span>
@@ -146,16 +161,16 @@
                                             <span class="input-data">
                                                 
                                                 <input id="Municipio" type="text" class="form-control @error('Municipio') is-invalid @enderror" name="Municipio" value="{{ old('Municipio') }}">
-                                                    
-                                                @error('Municipio')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
+                                                
                                                 <div class="underline"></div>
                         
                                                 <label for="Municipio">Municipio</label>
+                                                
+                                                @if ($errors->has('Municipio'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('Municipio')}}</span>
+                                                @endif
+                        
+                                                
                 
                                             </span>
                                             <span class="input-data"></span>
@@ -166,16 +181,16 @@
                                             <span class="input-data">
                                                 
                                                 <input id="Colonia" type="text" class="form-control @error('Colonia') is-invalid @enderror" name="Colonia" value="{{ old('Colonia') }}">
-                                                    
-                                                @error('Colonia')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
+                                                
                                                 <div class="underline"></div>
                         
                                                 <label for="Colonia">Colonia</label>
+                                                
+                                                @if ($errors->has('Colonia'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('Colonia')}}</span>
+                                                @endif
+                        
+                                                
                 
                                             </span>
                                             <span class="input-data"></span>
@@ -187,15 +202,15 @@
                                                 
                                                 <input id="Calle" type="text" class="form-control @error('Calle') is-invalid @enderror" name="Calle" value="{{ old('Calle') }}">
                                                     
-                                                @error('Calle')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                                                 <div class="underline"></div>
                         
                                                 <label for="Calle">Calle</label>
+                                                
+                                                @if ($errors->has('Calle'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('Calle')}}</span>
+                                                @endif
+                        
+                                                
                 
                                             </span>
                                             <span class="input-data"></span>
@@ -206,16 +221,15 @@
                                             <span class="input-data">
                                                 
                                                 <input id="Numerolocal" type="text" class="form-control @error('Numerolocal') is-invalid @enderror" name="Numerolocal" value="{{ old('Numerolocal') }}">
-                                                    
-                                                @error('Numerolocal')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
+                                                
                                                 <div class="underline"></div>
                         
-                                                <label for="Numerolocal">Numero del Local</label>
+                                                <label for="Numerolocal">Número del Local</label>
+                                                
+                                                @if ($errors->has('Numerolocal'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('Numerolocal')}}</span>
+                                                @endif
+                        
                 
                                             </span>
                                             <span class="input-data"></span>
@@ -226,16 +240,16 @@
                                                 
                                                 <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
                                                 
-                                                @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                        
                                                 <div class="underline"></div>
                         
-                                                <label for="email">Correo electronico</label>
+                                                <label for="email">Correo electrónico</label>
                 
+                
+                                                @if ($errors->has('email'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('email')}}</span>
+                                                @endif
+                        
+                        
                                             </span>
                                             
                                         </span>
@@ -245,49 +259,129 @@
                                     </div>
                                     
                                 </div>
-
-                                <div class="contenido-f">
-                                    <div class="TipoUser1">
-                                        <label class="select">¿FACTURA?</label>
-                                        <select name="facturacion" class="TipoU @error('facturacion') is-invalid @enderror" id="inputGroupSelect01">
-                                            <option value="">Selecciona</option>
-                                            <option value="Si">SI</option>
-                                            <option value="No">NO</option>
-                                        </select>
-                                        @error('facturacion')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                
+                                
+                                <div class="contenido-d">
+                                    <div class="seccion-i">
+                                        <div class="contenido-f">
+                                            <div class="TipoUser1">
+                                                <label class="select">¿FACTURA?</label>
+                                                <select name="facturacion" class="TipoU @error('facturacion') is-invalid @enderror" id="inputGroupSelect01">
+                                                    <option value="">Selecciona</option>
+                                                    <option value="SI" {{(old('facturacion') == "SI") ? "selected":""}}>SI</option>
+                                                    <option value="NO" {{(old('facturacion') == "NO") ? "selected":""}}>NO</option>
+                                                </select>
+                                            </div>
+                                            @if ($errors->has('facturacion'))
+                                                <span class="error text-danger" for="input-name">{{$errors->first('facturacion')}}</span>
+                                            @endif
+                                            
+                                        </div>
+                                        @if ($errors->has('montofactura'))
+                                            <span class="error text-danger" for="input-name">{{$errors->first('montofactura')}}</span>
+                                        @endif
+                                    
+                                        <!--<div  id="pai">-->
+                                        <!--    <div id="SI" class="factura">-->
+                                        <!--        <span class="form-row">-->
+                                        <!--            <span class="input-data">-->
+                                                        
+                                        <!--                <input id="montofactura" type="text" class=" @error('montofactura') is-invalid @enderror" name="montofactura" value="{{ old('montofactura') }}" placeholder="0.00">-->
+                                                        
+                                        <!--                <div class="underline"></div>-->
+                                    
+                                        <!--                <label for="Nombre">Monto de facturacion</label>-->
+                                    
+                                        <!--            </span>-->
+                                        <!--            <span class="input-data"></span>-->
+                                        <!--        </span>-->
+                                        <!--    </div>-->
+                                        <!--</div>-->
+                                        
+                                        
+                                        
                                     </div>
+                
+                
+                                    <!--<div class="seccion-d">-->
+                                    <!--    <div class="TipoUser1">-->
+                                    <!--        <label class="select">¿Incluye IVA?</label>-->
+                                    <!--        <select name="IVA" class="TipoU @error('IVA') is-invalid @enderror" id="inputGroupSelect01">-->
+                                    <!--            <option value="">Selecciona</option>-->
+                                    <!--            <option value="SI" {{(old('IVA') == "SI") ? "selected":""}}>SI</option>-->
+                                    <!--            <option value="NO" {{(old('IVA') == "NO") ? "selected":""}}>NO</option>-->
+                                    <!--        </select>-->
+
+                                    <!--    </div>-->
+                                    <!--    @if ($errors->has('IVA'))-->
+                                    <!--        <span class="error text-danger" for="input-name">{{$errors->first('IVA')}}</span>-->
+                                    <!--    @endif-->
+                                    <!--</div>-->
                                 </div>
-                            
-                            
+                                
+                                
+                                
                                 <div id="pai">
-                                    <div id="Si" class="factura">
-                                        <span class="form-row">
-                                            <span class="input-data">
-                                                
-                                                <input id="montofactura" type="text" class=" @error('montofactura') is-invalid @enderror" name="montofactura">
-                                                
-                                                @error('montofactura')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
+                                    <div id="SI">
+                                        <span class="contenido-d">
+                                            <span class="seccion-i">
+                                                <span class="factura">
+                                                    <span class="form-row">
+                                                        <span class="input-data">
+                                                            
+                                                            <input id="montofactura" type="text" class=" @error('montofactura') is-invalid @enderror" name="montofactura" value="{{ old('montofactura') }}" placeholder="0.00">
+                                                            
+                                                            <div class="underline"></div>
+                                        
+                                                            <label for="Nombre">Monto de facturacion</label>
+                                        
+                                                        </span>
+                                                        <span class="input-data"></span>
                                                     </span>
-                                                @enderror
-                            
-                                                <div class="underline"></div>
-                            
-                                                <label for="Nombre">Monto de facturacion</label>
-                            
+                                                </span>
+                                                
+                                                
+        
                                             </span>
-                                            <span class="input-data"></span>
+        
+        
+                                            <span class="seccion-d">
+                                                
+                                                <span class="TipoUser1">
+                                                    <label class="select">¿Incluye IVA?</label>
+                                                    <select name="IVA" class="TipoU @error('IVA') is-invalid @enderror" id="inputGroupSelect01">
+                                                        <option value="NO">Selecciona</option>
+                                                        <option value="SI" {{(old('IVA') == "SI") ? "selected":""}}>SI</option>
+                                                        <option value="NO" {{(old('IVA') == "NO") ? "selected":""}}>NO</option>
+                                                    </select>
+        
+                                                </span>
+                                                @if ($errors->has('IVA'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('IVA')}}</span>
+                                                @endif
+                                                
+                                                <span class="TipoUser1">
+                                                    <label class="select">¿Incluye Propina?</label>
+                                                    <select name="propina" class="TipoU @error('propina') is-invalid @enderror" id="inputGroupSelect01">
+                                                        <option value="NO">Selecciona</option>
+                                                        <option value="SI" {{(old('propina') == "SI") ? "selected":""}}>SI</option>
+                                                        <option value="NO" {{(old('propina') == "NO") ? "selected":""}}>NO</option>
+                                                    </select>
+                                                </span>
+                                                @if ($errors->has('propina'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('propina')}}</span>
+                                                @endif
+        
+                                            </span>
+                                            
                                         </span>
                                     </div>
                                 </div>
+                                
 
                                 
                                 <div class="contenido-d">
+                                    
                                     <div class="seccion-i">
                                         <div class="centro-r">
                                             <div class="rango-l">
@@ -295,200 +389,221 @@
                                             </div>
                                             <div class="rango-P">
                                                 
-                                                <select name="Distintivo" class="TipoU @error('Distintivo') is-invalid @enderror" id="inputGroupSelect01">
+                                                <select name="Distintivo" class="TipoU @error('Distintivo') is-invalid @enderror" id="inputGroupSelect02">
                                                     <option value="{{ old('Distintivo') }}">Selecciona</option>
-                                                    <option value="SI">SI</option>
-                                                    <option value="NO">NO</option>
+                                                    <option value="SI" {{(old('Distintivo') == "SI") ? "selected":""}}>SI</option>
+                                                    <option value="NO" {{(old('Distintivo') == "NO") ? "selected":""}}>NO</option>
                                                 </select>
-                                                @error('Distintivo')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
                                             </div>
                                         </div>
+                                        @if ($errors->has('Distintivo'))
+                                            <span class="error text-danger" for="input-name">{{$errors->first('Distintivo')}}</span>
+                                        @endif
+                                        
                                         
                                     </div>
-                
-                
+                                    
                                     <div class="seccion-d">
-                                        <div class="TipoUser1">
-                                            <label class="select">¿Incluye IVA?</label>
-                                            <select name="IVA" class="TipoU @error('IVA') is-invalid @enderror" id="inputGroupSelect01">
-                                                <option value="">Selecciona</option>
-                                                <option value="SI">SI</option>
-                                                <option value="NO">NO</option>
-                                            </select>
-                                            @error('IVA')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
+                                        <div id="distintivo">
+                                            <div id="NO">
+                                                <span style="display: grid">
+                                                    
+                                                    <span class="t-vigencia">
+                                                        <label for="start"><I>Vigencia</I></label>
+                                                    </span>
+                                                    
+                                                    <span class="vigencia">
+                                                        <span class="fecha-v">
+                                                            <label for="start"><I>Inicio</I></label>
+                                                            <input id="inicio_vigencia" type="date" class=" @error('inicio_vigencia') is-invalid @enderror" name="inicio_vigencia" value="{{ old('inicio_vigencia') }}" value="2018-07-22" min="2016-01-01" max="2050-12-31" autocomplete="inicio_vigencia" autofocus>
+                                                            
+                                                        </span>
+                                                        
+                
+                                                        <span class="fecha-v">
+                                                            <label for="start"><I>Termina</I></label>
+                                                            <input id="termina_vigencia" type="date" class=" @error('termina_vigencia') is-invalid @enderror" name="termina_vigencia" value="{{ old('termina_vigencia') }}" value="2018-07-22" min="2016-01-01" max="2050-12-31" autocomplete="termina_vigencia" autofocus>
+                                                        </span>
+                                                    </span>
+                                                    @if ($errors->has('inicio_vigencia'))
+                                                        <span class="error text-danger" for="input-name">{{$errors->first('inicio_vigencia')}}</span>
+                                                    @endif
+                                                    <br>
+                                                    @if ($errors->has('termina_vigencia'))
+                                                        <span class="error text-danger" for="input-name">{{$errors->first('termina_vigencia')}}</span>
+                                                    @endif
 
+                                                </span>
+                                            </div>
                                         </div>
                                     </div>
+                                       
                                 </div>
-
                                 
-
-                                <div class="contenido-d">
+                                
+                                 <div class="contenido-d">
+                                    
                                     <div class="seccion-i">
                                         <div class="centro-r">
                                             <div class="rango-l">
                                                 <label for="">Rango de Precio</label><br>
+                                                <div class="rango-precio">
+                                                    <div class="r-max">
+                                                        <label for="Maximo">Minimo</label>
+                                                    </div>
+                                                    <div class="r-min">
+                                                        <label for="Minimo">Maximo</label>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="rango-P">
                                                 
-                                                <input class="rango" type="text" class="form-control @error('rangoprecio[]') is-invalid @enderror" name="rangoprecio[]" value="{{ old('rangoprecio[]') }}"><h1>-</h1>
-                                                <input class="rango" type="text" class="form-control @error('rangoprecio[]') is-invalid @enderror" name="rangoprecio[]" value="{{ old('rangoprecio[]') }}">
-                                                @error('rangoprecio[]')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
+                                                <input class="rango" type="text" class="form-control @error('rangoprecio.*') is-invalid @enderror" name="rangoprecio[]" value="{{ old('rangoprecio.0') }}"><h1>-</h1>
+                                                <input class="rango" type="text" class="form-control @error('rangoprecio.*') is-invalid @enderror" name="rangoprecio[]" value="{{ old('rangoprecio.1') }}">
                                             </div>
+                                            @if ($errors->has('rangoprecio.*'))
+                                            <span class="error text-danger" for="input-name">{{$errors->first('rangoprecio.*')}}</span>
+                                            @endif
                                         </div>
                                     </div>
-                
-                
-                                    <div class="seccion-d">
-                                        <div class="TipoUser1">
-                                            <label class="select">¿Incluye Propina?</label>
-                                            <select name="propina" class="TipoU @error('propina') is-invalid @enderror" id="inputGroupSelect01">
-                                                <option value="">Selecciona</option>
-                                                <option value="SI">SI</option>
-                                                <option value="NO">NO</option>
-                                            </select>
-                                     
-                                            @error('propina')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-
-                                    </div>
+                                    
                                 </div>
-            
-            
-                            
+
 
             
                                 <div class="contenido-d">
                                     <div class="seccion-i">
                                         <h2 class="title-l">¿En que se destaca este restaurante?</h2>
                                         <div class="form-group form-check">
-                                            <div class="seccion-sp">
-                                                <div class="div-li">
-                                                    <input type="checkbox" class="form-check-input" id="bar" name="destacado[]" value="Bar con musica">
-                                                    <label class="form-check-label" for="text">Bar con musica en vivo</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="grupos" name="destacado[]" value="Grupos grandes">
-                                                    <label class="form-check-label" for="text">Grupos grandes</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="comidalocal" name="destacado[]" value="Comida local">
-                                                    <label class="form-check-label" for="text">Comida local</label><br>
+                                            <div>
+                                                <div class="check-lista">
+                                                    
+                                                    @foreach ($caracteristicas as $caracteristica)
+                                                    
+                                                        <input type="checkbox" class="form-check-input" id="grupos" name="destacado[]" value="{{$caracteristica->caracteristica}}" {{ (is_array(old('destacado')) && in_array("$caracteristica->caracteristica", old('destacado'))) ? ' checked' : '' }}>
+                                                        <label class="form-check-label" for="text">{{$caracteristica->caracteristica}}</label><br>
+    
+                                                    @endforeach
+                                                    
                                                 </div>
-                                                <div class="div-ld">
-                                                    <input type="checkbox" class="form-check-input" id="pueblosabor" name="destacado[]" value="Pueblo con sabor">
-                                                    <label class="form-check-label" for="">Pueblo con sabor</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="reuniones" name="destacado[]" value="Reuniones de negocios">
-                                                    <label class="form-check-label" for="text">Reuniones de negocios</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="oespeciales" name="destacado[]" value="Ocaciones especiales">
-                                                    <label class="form-check-label" for="text">Ocaciones especiales</label>
-                                                </div>
-                                                @if ($errors->has('destacado.*'))
-                                                    <span class="error text-danger" for="input-name">{{$errors->first('destacado.*')}}</span>
-                                                @endif
                                             </div>
+                                                @if ($errors->has('destacado'))
+                                                    <span class="error text-danger" for="input-name">{{$errors->first('destacado')}}</span>
+                                                @endif
 
                                         </div>
                                     </div>
                                     
                                     <div class="seccion-d">
                                         
-                                        <h2 class="title-l">¿Que comidas sirve en este restaurante?</h2>
+                                        <h2 class="title-l">¿Qué comidas sirve el restaurante?</h2>
                                         <div class="form-group form-check">
-                                            <div class="seccion-sp">
-                                                <div class="div-li">
-                                                    <input type="checkbox" class="form-check-input" id="desayuno" name="comidas[]" value="Desayuno">
-                                                    <label class="form-check-label" for="">Desayuno</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="almuerzo" name="comidas[]" value="Almuerzo">
-                                                    <label class="form-check-label" for="">almerzo</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="abiertotarde" name="comidas[]" value="Abierto 24hrs">
-                                                    <label class="form-check-label" for="">Abierto 24 hrs</label><br>
+                                            <div>
+                                                <div class="check-lista">
+                                                    
+                                                    @foreach ($tiposcomidas as $tiposcomida)
+                                                    
+                                                        <input type="checkbox" class="form-check-input" id="tipocomida" name="comidas[]" value="{{$tiposcomida->comida}}" 
+                                                        {{ (is_array(old('comidas')) && in_array("$tiposcomida->comida", old('comidas'))) ? ' checked' : '' }}>
+                                                        <label class="form-check-label" for="text">{{$tiposcomida->comida}}</label><br>
+    
+                                                    @endforeach
+                                                    
                                                 </div>
-                                                <div class="div-ld">
-                                                    <input type="checkbox" class="form-check-input" id="bebidas" name="comidas[]" value="Bebidas">
-                                                    <label class="form-check-label" for="">Bebidas</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="cena" name="comidas[]" value="Cena">
-                                                    <label class="form-check-label" for="">cena</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="brunch" name="comidas[]" value="Brunch">
-                                                    <label class="form-check-label" for="">Brunch</label>
-                                                </div>
+                                                
                                             </div>
+                                            @if ($errors->has('destacado'))
+                                                <span class="error text-danger" for="input-name">{{$errors->first('comidas')}}</span>
+                                            @endif
                                         </div>
                                         
                                     </div>
                                     
                                 </div>
 
-
-
+                                
                                 <div class="contenido-d">
+                                    
                                     <div class="seccion-i">
                                         <h2 class="title-l">¿Dietas especiales?</h2>
                                         <div class="form-group form-check">
-                                            <div class="seccion-sp">
-                                                <div class="div-li">
-                                                    <input type="checkbox" class="form-check-input" id="bar" name="dietas_especiales[]" value="Apto para vegetarianos">
-                                                    <label class="form-check-label" for="text">Apto para vegetarianos</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="grupos" name="dietas_especiales[]" value="Opciones veganas">
-                                                    <label class="form-check-label" for="text">Opciones veganas</label><br>
+                                            <div>
+                                                <div class="check-lista">
+                                                    
+                                                    @foreach ($dietasespeciales as $dietaespecial)
+                                                    
+                                                        <input type="checkbox" class="form-check-input" id="dietas" name="dietas_especiales[]" value="{{$dietaespecial->dietas}}" {{ (is_array(old('dietas_especiales')) && in_array("$dietaespecial->dietas", old('dietas_especiales'))) ? ' checked' : '' }}>
+                                                        <label class="form-check-label" for="text">{{$dietaespecial->dietas}}</label><br>
+    
+                                                    @endforeach
+                                                    
+                                                    
+                                                    
                                                 </div>
-                                                <div class="div-ld">
-                                                    <input type="checkbox" class="form-check-input" id="pueblosabor" name="dietas_especiales[]" value="Opciones sin gluten">
-                                                    <label class="form-check-label" for="">Opciones sin gluten</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="reuniones" name="dietas_especiales[]" value="Ninguna">
-                                                    <label class="form-check-label" for="text">Ninguna</label><br>
-                                                </div>
+                                                
                                             </div>
-                                            
-                                            
+                                             @if ($errors->has('destacado'))
+                                                <span class="error text-danger" for="input-name">{{$errors->first('dietas_especiales')}}</span>
+                                            @endif
                                         </div>
                                        
                                     </div>
                                     
                                     
+                
                                     <div class="seccion-d">
-
-                                        <h2 class="title-l">¿Que tipo de establecimieto es?</h2>
                                         
-                                        <div class="seccion-sp">
-                                            <div class="div-li">
-                                                <input class="rad" type="radio" name="tipo_establecimiento" value="Restaurante" id="rad">
-                                                <label class="label-l" for="restaurante">Restaurante</label>
-                                                <input class="rad" type="radio" name="tipo_establecimiento" value="Comedor" id="rad">
-                                                <label class="label-l" for="comedor">Comedor</label>
+                                        <h2 class="title-l">¿Qué tipo de establecimieto es?</h2>
+                                        <div class="form-group form-check">
+                                            <div>
+                                                <div class="check-lista">
+                                                    @foreach ($establecimietos as $establecimieto)
+                                                            
+                                                        <div>
+                                                            <input class="rad" type="radio" name="tipo_establecimiento" value="{{$establecimieto->establecimiento}}" {{(old('tipo_establecimiento') == "$establecimieto->establecimiento") ? "checked":""}} id="rad" >
+                                                            <label class="label-l" for="restaurante">{{$establecimieto->establecimiento}}</label>
+                                                        </div>
+                                                        
+                                                    @endforeach
+
+                                                </div>
                                             </div>
+                                            @if ($errors->has('tipo_establecimiento'))
+                                                <span class="error text-danger" for="input-name">{{$errors->first('tipo_establecimiento')}}</span>
+                                            @endif
                                         </div>
-                                        @if ($errors->has('tipo_establecimiento'))
-                                            <span class="error text-danger" for="input-name">{{$errors->first('tipo_establecimiento')}}</span>
-                                        @endif
+                                        
                                     </div>
                                 </div>
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
 
                            
                                 <div class="contenido-d">
                                     <div class="seccion-i">
-                                        <h2 class="title-l">¿Que tan costoso es?</h2>
+                                        <h2 class="title-l">¿Qué tan costoso es?</h2>
 
-                                        <div class="seccion-sp">
-                                            <div class="div-li">
-                                                <input type="radio" name="precio" value="Economico" id="rad">
-                                                <label class="label-l" for="Economico">Economico</label>
-                                                <input type="radio" name="precio" value="Gama Media" id="rad">
-                                                <label class="label-l" for="gamaMedia">Gama media</label>
-                                                <input type="radio" name="precio" value="Elegante" id="rad">
-                                                <label class="label-l" for="Elegante">Elegante</label>
+                                        <div>
+                                            <div class="check-lista">
+                                                
+                                                 @foreach ($precios as $precio)
+                                                    
+                                                     <div>
+                                                        <input class="rad" type="radio" name="precio" value="{{$precio->categoria}}" {{(old('precio') == "$precio->categoria") ? "checked":""}} id="rad">
+                                                        <label class="label-l" for="Economico">{{$precio->categoria}}</label>
+                                                    </div>
+                                                    
+                                                   
+
+                                                @endforeach
+                                                
                                             </div>
                                         </div>
                                         @if ($errors->has('precio'))
@@ -498,36 +613,22 @@
                 
                                     <div class="seccion-d">
                                         
-                                        <h2 class="title-l">¿Que tipos de servicios ofrece este restaurante?</h2>
+                                        <h2 class="title-l">¿Qué tipos de servicios ofrece el restaurante?</h2>
                                         <div class="form-group form-check">
-                                            <div class="seccion-sp">
-                                                <div class="div-li">
-                                                    <input type="checkbox" class="form-check-input" id="juegos" name="tipo_servicio[]" value="Patio de Juegos">
-                                                    <label class="form-check-label" for="text">Patio de juegos</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="efectivo" name="tipo_servicio[]" value="Efectivo">
-                                                    <label class="form-check-label" for="text">Solo pagos en efectivo</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="nofumar" name="tipo_servicio[]" value="No permite fumar">
-                                                    <label class="form-check-label" for="text">No se permite fumar</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="wifi" name="tipo_servicio[]" value="WIFI">
-                                                    <label class="form-check-label" for="text">Wifi grtis</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="serviciomesa" name="tipo_servicio[]" value="Servicio de mesa">
-                                                    <label class="form-check-label" for="text">Servicio de mesa</label><br>
+                                            <div>
+                                                <div class="check-lista">
                                                     
-                                                </div>
-                                                <div class="div-ld">
-                                                    <input type="checkbox" class="form-check-input" id="reservaciones" name="tipo_servicio[]" value="Reservaciones">
-                                                    <label class="form-check-label" for="text">Reservaciones</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="tele" name="tipo_servicio[]" value="TV">
-                                                    <label class="form-check-label" for="text">Television</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="tcredito" name="tipo_servicio[]" value="Acepta tarjeta de credito">
-                                                    <label class="form-check-label" for="text">Acepta tarjetas de Credito</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="sruedas" name="tipo_servicio[]" value="Acceso para silla de ruedas">
-                                                    <label class="form-check-label" for="text">Acceso para silla de ruedas</label><br>
-                                                    <input type="checkbox" class="form-check-input" id="tdebito" name="tipo_servicio[]" value="Acepta tarjetas de debido">
-                                                    <label class="form-check-label" for="text">Acepta tarjetas de Debito</label><br>
-                                                
+                                                    @foreach ($servicios as $servicio)
+                                                    
+                                                        <input type="checkbox" class="form-check-input" id="juegos" name="tipo_servicio[]" value="{{$servicio->servicios}}" {{ (is_array(old('tipo_servicio')) && in_array("$servicio->servicios", old('tipo_servicio'))) ? ' checked' : '' }}>
+                                                        <label class="form-check-label" for="text">{{$servicio->servicios}}</label><br>
+    
+                                                    @endforeach
                                                 </div>
                                             </div>
+                                            @if ($errors->has('destacado'))
+                                                <span class="error text-danger" for="input-name">{{$errors->first('tipo_servicio')}}</span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

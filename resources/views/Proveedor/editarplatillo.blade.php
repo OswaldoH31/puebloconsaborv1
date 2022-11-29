@@ -15,7 +15,7 @@
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Nombre" type="text" @error('Nombre') is-invalid @enderror" name="Nombre" value="{{$platillo->Nombre}}" required autocomplete="Nombre" autofocus>
+                                <input id="Nombre" type="text" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" value="{{$platillo->Nombre}}">
                                     
                                 @error('Nombre')
                                     <span class="invalid-feedback" role="alert">
@@ -31,29 +31,30 @@
                             <span class="input-data"></span>
                         </span>
 
+                        
+                        
                         <span class="form-row">
                             <span class="input-data">
+                                <textarea id="Descripcion" style="resize: none;" class="form-control @error('Descripcion') is-invalid @enderror" name="Descripcion" rows="4" cols="37">{{$platillo->Descripcion}}</textarea>
                                 
-                                <input id="Descripcion" type="text" @error('Descripcion') is-invalid @enderror" name="Descripcion" value="{{$platillo->Descripcion}}"  required autocomplete="Descripcion" autofocus>
-                                
-                                @error('Descripcion')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-        
                                 <div class="underline"></div>
         
-                                <label for="Descripcion">Descripcion</label>
-
+                                <label style="bottom: 41px; font-size: 15px;" for="Descripcion">Descripcion</label>
+                                
+                                @if ($errors->has('Descripcion'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('Descripcion')}}</span>
+                                @endif
+        
+                                
                             </span>
                             <span class="input-data"></span>
                         </span>
+                        <br><br>
 
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Costo" type="text" @error('Costo') is-invalid @enderror" name="Costo" value="{{$platillo->Costo}}" required autocomplete="Costo" autofocus>
+                                <input id="Costo" type="text" class="form-control @error('Costo') is-invalid @enderror" name="Costo" value="{{$platillo->Costo}}">
                                 
                                 @error('Costo')
                                     <span class="invalid-feedback" role="alert">
@@ -73,8 +74,12 @@
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Imagen" type="file" @error('Imagen') is-invalid @enderror" name="Imagen" value="{{ $platillo->Imagen }}"  autocomplete="Imagen" autofocus>
-                                        
+                                <input id="Imagen" type="file" class="form-control @error('Imagen') is-invalid @enderror" name="Imagen" value="{{ $platillo->Imagen }}"  autocomplete="Imagen" autofocus>
+                         
+                                <div class="underline"></div>
+        
+                                <label for="Nombre">Imagen</label>
+                                               
                                 @error('Imagen')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

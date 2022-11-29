@@ -16,6 +16,14 @@
 <div>
     <div class="seccionT">
     <h2 class="titulo">{{$local->nombre}}</h2>
+    
+    <div class="row-2-C1">
+        <div class="regresar">
+            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjIxOS4yNzJweCIgaGVpZ2h0PSIyMTkuMjcxcHgiIHZpZXdCb3g9IjAgMCAyMTkuMjcyIDIxOS4yNzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDIxOS4yNzIgMjE5LjI3MTsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPHBhdGggZD0iTTEyMC43NzQsMTc5LjI3MXY0MGM0Ny4zMDMsMCw4NS43ODQtMzguNDgyLDg1Ljc4NC04NS43ODVjMC00Ny4zLTM4LjQ4MS04NS43ODItODUuNzg0LTg1Ljc4Mkg4OS4yODJMMTA4LjcsMjguMjg2DQoJCUw4MC40MTcsMEwxMi43MTMsNjcuNzAzbDY3LjcwMyw2Ny43MDFsMjguMjgzLTI4LjI4NEw4OS4yODIsODcuNzAzaDMxLjQ5MmMyNS4yNDYsMCw0NS43ODQsMjAuNTM4LDQ1Ljc4NCw0NS43ODMNCgkJQzE2Ni41NTgsMTU4LjczLDE0Ni4wMiwxNzkuMjcxLDEyMC43NzQsMTc5LjI3MXoiLz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjwvc3ZnPg0K" />
+            <a class="T-U" href="{{route('Menu.show', "$local->id" )}}"> Regresar</a>
+        </div>
+    </div>
+        
 </div>
 <div class="Menu-Sp">
                 
@@ -73,7 +81,6 @@
                     <option value="">Selecciona</option>
                     <option value="div1">Platillo</option>
                     <option value="div2">Bebida</option>
-                    {{-- <option value="div3">Refresco</option>  --}}
                 </select>
             </div>
 
@@ -83,58 +90,59 @@
                 <div id="div1">
                     <form action="{{route('platillo.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
-
+                       
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Nombre" type="text" @error('Nombre') is-invalid @enderror" name="Nombre" required autocomplete="Nombre" autofocus>
-                                    
-                                @error('Nombre')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-        
+                                <input id="Nombre" type="text" class="form-control @error('Nombre') is-invalid @enderror" name="Nombre" value="{{ old('Nombre') }}">
+                                
+                                
                                 <div class="underline"></div>
         
                                 <label for="Nombre">Nombre del platillo</label>
+                                    
+                                @if ($errors->has('Nombre'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('Nombre')}}</span>
+                                @endif
 
                             </span>
                             <span class="input-data"></span>
                         </span>
-
+                        
+                        
+                        
                         <span class="form-row">
                             <span class="input-data">
+                                <textarea id="Descripcion" style="resize: none;" class="form-control @error('Descripcion') is-invalid @enderror" name="Descripcion" rows="4" cols="37"> {{ old('Descripcion') }}</textarea>
                                 
-                                <input id="Descripcion" type="text" @error('Descripcion') is-invalid @enderror" name="Descripcion" required autocomplete="Descripcion" autofocus>
-                                
-                                @error('Descripcion')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-        
                                 <div class="underline"></div>
         
-                                <label for="Descripcion">Descripcion</label>
-
+                                <label style="bottom: 41px; font-size: 15px;" for="Descripcion">Descripcion</label>
+                                
+                                @if ($errors->has('Descripcion'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('Descripcion')}}</span>
+                                @endif
+        
+                                
                             </span>
                             <span class="input-data"></span>
                         </span>
-
+                        <br><br>
+                        
+                        
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Costo" type="text" @error('Costo') is-invalid @enderror" name="Costo" required autocomplete="Costo" autofocus>
+                                <input id="Costo" type="text" class="form-control @error('Costo') is-invalid @enderror" name="Costo" value="{{ old('Costo') }}">
                                 
-                                @error('Costo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-        
                                 <div class="underline"></div>
-                                <label for="Costo">Costo</label>
+        
+                                <label for="Descripcion">Costo</label>
+                                
+                                @if ($errors->has('Costo'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('Costo')}}</span>
+                                @endif
+        
 
                             </span>
                             <span class="input-data"></span>
@@ -145,13 +153,15 @@
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Imagen" type="file" @error('Imagen') is-invalid @enderror" name="Imagen" required autocomplete="Imagen" autofocus>
+                                <input id="Imagen" type="file" class="form-control @error('Imagen') is-invalid @enderror" name="Imagen" value="{{ old('Imagen') }}">
+                                
+                                <div class="underline"></div>
+        
+                                <label for="Nombre">Imagen</label>
                                         
-                                @error('Imagen')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                @if ($errors->has('Imagen'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('Imagen')}}</span>
+                                @endif
 
                                 <div class="underline"></div>
                             </span>
@@ -159,6 +169,7 @@
                         </span>
 
                         <input id="prodId" name="local_id" type="hidden" value="{{$local->id}}">
+                        
                         
                         
                         <button class="button" type="submit">Agregar</button>
@@ -177,17 +188,16 @@
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Nombre" type="text" @error('Nombre') is-invalid @enderror" name="Nombre"  required autocomplete="Nombre" autofocus>
+                                <input id="B_Nombre" type="text" class="form-control @error('B_Nombre') is-invalid @enderror" name="B_Nombre"  value="{{ old('B_Nombre') }}">
                                 
-                                @error('Nombre')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-        
                                 <div class="underline"></div>
         
                                 <label for="Nombre">Nombre de la bebida</label>
+                                
+                                @if ($errors->has('B_Nombre'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('B_Nombre')}}</span>
+                                @endif
+        
 
                             </span>
                             <span class="input-data"></span>
@@ -203,34 +213,37 @@
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Costo" type="text" @error('Costo') is-invalid @enderror" name="Costo"  required autocomplete="Costo" autofocus>
+                                <input id="B_Costo" type="text" class="form-control @error('B_Costo') is-invalid @enderror" name="B_Costo" value="{{ old('B_Costo') }}">
                                 
-                                @error('Costo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-        
                                 <div class="underline"></div>
         
                                 <label for="Costo">Costo</label>
+                                
+                                @if ($errors->has('B_Costo'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('B_Costo')}}</span>
+                                @endif
+        
 
                             </span>
                             <span class="input-data"></span>
                         </span>
+                        
+                        
 
 
                         <span class="form-row">
                             <span class="input-data">
                                 
                                 {{-- <input type="text" name="ApellidoMaterno" required> --}}
-                                <input id="Imagen" type="file" @error('Imagen') is-invalid @enderror" name="Imagen"  required autocomplete="Imagen" autofocus>
+                                <input id="B_Imagen" type="file" class="form-control @error('B_Imagen') is-invalid @enderror" name="B_Imagen">
                                 
-                                @error('Imagen')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <div class="underline"></div>
+        
+                                <label for="Imagen">Imagen</label>
+                                
+                                 @if ($errors->has('B_Imagen'))
+                                    <span class="error text-danger" for="input-name">{{$errors->first('B_Imagen')}}</span>
+                                @endif
         
                                 <div class="underline"></div>
                             </span>
@@ -243,99 +256,6 @@
                     </form>
                 </div>
 
-
-
-
-                <div id="div3">
-                    
-                    <form action="{{route('refresco.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        
-                        <span class="form-row">
-                            <span class="input-data">
-                                
-                            {{-- <input type="text" name="Nombre" required> --}}
-                            <input id="Marca" type="text" @error('Marca') is-invalid @enderror" name="Marca" required autocomplete="Marca" autofocus>
-                                
-                            @error('Marca')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-    
-                            <div class="underline"></div>
-    
-                            <label for="Marca">Marca</label>
-
-                            </span>
-                            <span class="input-data"></span>
-                        </span>
-
-                        <span class="form-row">
-                            <span class="input-data">
-                                
-                            {{-- <input type="text" name="Nombre" required> --}}
-                            <input id="Cantidad" type="text" @error('Cantidad') is-invalid @enderror" name="Cantidad"  required autocomplete="Cantidad" autofocus>
-                                
-                            @error('Cantidad')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-    
-                            <div class="underline"></div>
-    
-                            <label for="Cantidad">Cantidad</label>
-
-                            </span>
-                            <span class="input-data"></span>
-                        </span>
-
-
-                        <span class="form-row">
-                            <span class="input-data">
-                                
-                            {{-- <input type="text" name="Nombre" required> --}}
-                            <input id="Costo" type="text" @error('Costo') is-invalid @enderror" name="Costo" " required autocomplete="Costo" autofocus>
-                                
-                            @error('Costo')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-    
-                            <div class="underline"></div>
-    
-                            <label for="Costo">Costo</label>
-
-                            </span>
-                            <span class="input-data"></span>
-                        </span>
-
-
-                        <span class="form-row">
-                            <span class="input-data">
-                                
-                            {{-- <input type="text" name="ApellidoMaterno" required> --}}
-                            <input id="Imagen" type="file" @error('Imagen') is-invalid @enderror" name="Imagen" required autocomplete="Imagen" autofocus>
-                                
-                            @error('Imagen')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-    
-                            <div class="underline"></div>
-    
-                            </span>
-                            <span class="input-data"></span>
-                        </span>
-
-                        <input id="prodId" name="local_id" type="hidden" value="{{$local->id}}">
-                        
-                        <button class="button" type="submit">Agregar</button>
-                    </form>
-                </div>
 
             </div>
         </div>

@@ -15,9 +15,9 @@
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Nombre" type="text" @error('Nombre') is-invalid @enderror" name="Nombre" value="{{ $bebida->Nombre }}" required autocomplete="Nombre" autofocus>
+                                <input id="Nombre" type="text" class="form-control @error('B_Nombre') is-invalid @enderror" name="B_Nombre" value="{{ $bebida->Nombre }}">
                                 
-                                @error('Nombre')
+                                @error('B_Nombre')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -35,9 +35,9 @@
                         <span class="form-row">
                             <span class="input-data">
                                 
-                                <input id="Costo" type="text" @error('Costo') is-invalid @enderror" name="Costo" value="{{ $bebida->Costo }}" required autocomplete="Costo" autofocus>
+                                <input id="Costo" type="text" class="form-control @error('B_Costo') is-invalid @enderror" name="B_Costo" value="{{ $bebida->Costo }}">
                                 
-                                @error('Costo')
+                                @error('B_Costo')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -56,9 +56,9 @@
                             <span class="input-data">
                                 
                                 {{-- <input type="text" name="ApellidoMaterno" required> --}}
-                                <input id="Imagen" type="file" @error('Imagen') is-invalid @enderror" name="Imagen"  value="{{ $bebida->Imagen }}" autocomplete="Imagen" autofocus>
+                                <input id="Imagen" type="file" class="form-control @error('B_Imagen') is-invalid @enderror" name="B_Imagen"  value="{{ $bebida->Imagen }}" autocomplete="Imagen" autofocus>
                                 
-                                @error('Imagen')
+                                @error('B_Imagen')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
