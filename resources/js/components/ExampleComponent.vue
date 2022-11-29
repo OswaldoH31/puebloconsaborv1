@@ -16,7 +16,7 @@
 
                         <table class="table table-bordered mt-4">
                         <thead>
-                            <th>Id</th>
+                            <th>Ids</th>
                             <th>Local</th>
                             <th>Descripcion</th>
                             <th>Telefono</th>
@@ -55,7 +55,7 @@
         data(){
             return{
                 locales: null,
-                api:'http://localhost:8000/api/Listadolocales'
+                api:'https://pueblohuejutla.puebloconsaboruthh.com/Listadolocales'
             } 
         },
         mounted() {

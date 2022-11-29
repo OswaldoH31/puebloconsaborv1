@@ -24,7 +24,7 @@ class Proveedor
                 return $next($request);  
             break;
             case ('3'):
-                return redirect('User'); 
+                return redirect('Usuario'); 
             break;
         }
     }

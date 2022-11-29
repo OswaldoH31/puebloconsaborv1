@@ -137,9 +137,9 @@
 
 @section('content')
 
-    <div id="app">
-        <Appi/>
-    </div>
+    <!--<div id="app">-->
+    <!--    <Appi/>-->
+    <!--</div>-->
     
     
 

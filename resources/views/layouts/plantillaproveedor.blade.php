@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styleOriginal.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styleOriginal.css?3.6')}}" rel="stylesheet">
     <link href="{{ asset('css/css/all.min.css') }}" rel="stylesheet">
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" >
@@ -66,20 +66,12 @@
                                 Local
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="Locales">Lista Locales</a>
-                                <a class="dropdown-item" href="agregarlocal">Añadir nuevo</a>
+                                <a class="dropdown-item" href="{{route('local.locales')}}">Listado de Locales</a>
+                                <a class="dropdown-item" href={{route('local.index')}}>Añadir nuevo</a>
                             </div>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" style="color: white; font-family:Latin Modern Roman 10; font-style: oblique; ;font-size: large;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Menu
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="agregarmenu/menu">Añadir nuevo</a>
-                            </div>
-                        </li>
-
+                        
 
                         <!-- Authentication Links -->
 
@@ -132,9 +124,12 @@
     @yield('carrusel')   
     @yield('content1')
     @yield('content')
+    @yield('js')
     
     
     <script src="{{asset('js/ocultar.js')}}"></script>
+    
+    
     
 </body>
 

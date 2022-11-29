@@ -13,6 +13,8 @@ class Local extends Model
         'nombre',
         'descripcion',
         'Distintivo',
+        'inicio_vigencia',
+        'termina_vigencia',
         'Municipio',
         'Colonia',
         'Calle',

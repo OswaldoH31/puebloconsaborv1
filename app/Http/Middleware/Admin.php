@@ -22,7 +22,7 @@ class Admin
                 return $next($request); 
             break;
             case ('2'):
-                return redirect('User'); 
+                return redirect('Usuario'); 
             break;
             case ('3'):
                 return redirect('Proveedor'); 

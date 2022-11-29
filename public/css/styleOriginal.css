@@ -1603,7 +1603,7 @@ a.btn-C {
     width: 100%;
     color: white;
     font-size: 20px;
-    background: #0B0B3B;
+    background: #05ad37;
     padding: 15px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -1616,7 +1616,7 @@ a.btn-C {
 }
 
 .button:hover{
-    background: #010192;
+    background: #0bc052e8;
 }
 
 p{
@@ -1821,7 +1821,7 @@ form .form-row .textarea{
   width: 100%;
   height: 100%;
   border: none;
-  font-size: 17px;
+  font-size: 14px;
   border-bottom: 2px solid rgba(0,0,0, 0.12);
 }
 .input-data input:focus ~ label, .textarea textarea:focus ~ label,
@@ -1920,9 +1920,7 @@ form .form-row .textarea{
 -------------------------------------------------------------------------------*/
 
 .MenuEsp {
-    margin-top: 50px;
-    margin-left: 14%;
-    margin-right: 13%;
+    margin:auto;
 }
 
 .MenuEsp1{
@@ -1933,6 +1931,10 @@ form .form-row .textarea{
 
 .MenuT{
     text-align: center;
+}
+
+.MenuEspOpinion{
+     margin:10%;
 }
 
 
@@ -1964,8 +1966,22 @@ label.Menu-M {
     margin-bottom: 100px;
 }
 
+
+.buttonMenuP-B {
+    font-size: -8px;
+    background: #ffffff;
+    padding: 7px 7px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    text-align-last: start;
+}
+
+
+
 .sep-Tit {
-    display: flex;
+    display: block;
+    margin: auto;
 }
 
 label.T-M1 {
@@ -1982,15 +1998,12 @@ label.T-M1 {
 
 .izq-P{
     height: 250px;
-    display: flex;
-    margin-bottom: 25px;
+    display: table-cell;
 }
 
 
 .der-B {
-    width: 100%;
-    display: block;
-    margin-bottom: 35px;
+    display: table-cell;
 }
 
 .T-P{
@@ -2064,8 +2077,8 @@ label.C-C {
 }
 
 .D-1{
-    display: table;
-    margin: auto;
+    margin: 13px;
+    text-align: -webkit-center;
 }
 
 .imagen-P{
@@ -2077,6 +2090,13 @@ label.C-C {
     width: 100%;
     text-align: center;
     
+}
+
+.btn-M {
+    display: flex;
+    /* width: 100%; */
+    margin: auto;
+    width: fit-content;
 }
 
 
@@ -3077,6 +3097,11 @@ ________________________________________________________________________________
     display: none;
 }
 
+#distintivo div{
+    /*display: none;*/
+}
+
+
 
 .seccion-i {
     width: 50%;
@@ -3086,6 +3111,20 @@ ________________________________________________________________________________
 .seccion-d {
     width: 50%;
     padding: 10px;
+}
+
+
+.t-vigencia {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.fecha-v {
+    display: inline-grid;
+}
+
+.vigencia {
+    text-align: center;
 }
 
 
@@ -3106,6 +3145,25 @@ ________________________________________________________________________________
 
 .rango-l {
     text-align: center;
+}
+
+.rango-precio {
+    width: 250px;
+    margin: 0px auto;
+    display: flex;
+}
+
+
+.r-max {
+    text-align: initial;
+    width: 50%;
+    padding-left: 27px;
+}
+
+
+.r-min {
+    text-align: end;
+    width: 50%;
 }
 
 .centro-r {
@@ -3148,6 +3206,11 @@ label.label-l {
 
 .seccion-sp {
     display: flex;
+}
+
+.check-lista {
+    column-count: 2;
+    margin-left: 18px;
 }
 
 
@@ -3205,6 +3268,7 @@ input#costo {
 
 .sep-t{
     display: flex;
+    height: 280px;
 }
 
 .card-body-b{
@@ -3237,7 +3301,7 @@ input#costo {
 
 
 .btn-L {
-    margin-top: 65px;
+    margin-top: 20px;
 }
 
 .button11{
@@ -3258,6 +3322,24 @@ input#costo {
     background: #0bc052e8;
 }
 
+
+.buttonMenu {
+    border: none;
+    font-size: 20px;
+    background: #ffffff;
+    padding: 7px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 150px;
+    text-align-last: start;
+}
+
+
+a.btnMenu {
+    color: black;
+    text-decoration: none;
+}
 
 .button2{
     border: none;
@@ -3377,7 +3459,9 @@ input.rango {
 
 
 a.btnMenu {
-    color: white;
+    color: black;
+    text-decoration: none;
+
 }
 
 .tabla-T {
@@ -3406,6 +3490,7 @@ td.btn-LP {
 
 a.btnEditar {
     color: aliceblue;
+    text-decoration: none;
 }
 
 
@@ -4267,8 +4352,6 @@ input:checked+.slider:before {
 
 input#bar {
     content: "";
-    height: 20px;
-    width: 20px;
     margin-right: 20px;
 }
 
