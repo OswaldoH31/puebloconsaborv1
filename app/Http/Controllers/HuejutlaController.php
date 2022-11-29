@@ -10,6 +10,12 @@ use Illuminate\Http\Request;
 
 class HuejutlaController extends Controller
 {
+    public function __construct()
+    {
+        //$this->middleware('auth');
+        $this->middleware('Admin',['only'=>['Huejutla','edit','update']]);
+    }
+    
     /**
      * Display a listing of the resource.
      *

@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
+use Illuminate\Support\Facades\Crypt;
 
 class RegisterController extends Controller
 {
@@ -56,9 +57,9 @@ class RegisterController extends Controller
         return Validator::make($data, [
 
             
-            'Nombre' => ['required', 'regex:/^(?=.{3,18}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/'],
-            'Apellido_paterno' => ['required', 'string', 'regex:/^(?=.{3,36}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/'],
-            'Apellido_materno' => ['required', 'regex:/^(?=.{3,36}$)[a-zñA-ZÑ](\s?[a-zñA-ZÑ])*$/'],
+            'Nombre' => ['required', 'regex:/^[^$%&|<>#="*]+$/'],
+            'Apellido_paterno' => ['required', 'string', 'regex:/^[^$%&|<>#="*]+$/'],
+            'Apellido_materno' => ['required', 'string' ,'regex:/^[^$%&|<>#="*]+$/'],
             'Telefono' => ['required','digits:10'],
             'Genero' => ['required'],
             'Fecha_nacimiento' => ['required','date'],
@@ -88,7 +89,7 @@ class RegisterController extends Controller
             'Fecha_nacimiento' => $data['Fecha_nacimiento'],
             'Genero' => $data['Genero'],
             'email' => $data['email'],
-            'Telefono' => Hash::make($data['Telefono']),
+            'Telefono' => Crypt::encryptString($data['Telefono']),
             'Usuario' => $data['Usuario'],
             'Rol_id' => $data['Rol_id'],
             'password' => $data['password'],

@@ -10,6 +10,8 @@ use App\Models\Platillos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
 
 class PlatilloController extends Controller
 {
@@ -44,8 +46,19 @@ class PlatilloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+     
     public function store(Request $request)
     {
+        
+        $request->validate([
+            
+            'Nombre' => ['required', 'string','regex:/^[^$%&|<>#="*]+$/'],
+            'Descripcion' => ['required','max:255','regex:/^[^$%&|<>#="*]+$/'],
+            'Costo' => ['required','numeric','regex:/^[\d]{0,11}(\.[\d]{1,2})?$/'],
+            'Imagen'=>['required','mimes:jpg,jpeg,png'],
+
+        ]);
+        
         
         $imagenes = $request->file('Imagen')->store('public/menu');
         $file = Storage::url($imagenes);
@@ -65,7 +78,7 @@ class PlatilloController extends Controller
         ]);
 
 
-        return redirect('/Menu/'.$local_id);
+        return redirect('/Menu/'.$local_id)->with('success','Platillo');
 
     }
 
@@ -117,6 +130,16 @@ class PlatilloController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
+        $request->validate([
+            
+            'Nombre' => ['required', 'string'],
+            'Descripcion' => ['required','max:255'],
+            'Costo' => ['required','numeric','regex:/^[\d]{0,11}(\.[\d]{1,2})?$/'],
+            'Imagen'=>['mimes:jpg,jpeg,png'],
+
+        ]);
+        
         $ids =  $request->local_id;
         
         $platillo= Platillos::findOrFail($id);
@@ -140,7 +163,7 @@ class PlatilloController extends Controller
 
         $platillo->save();
 
-        return redirect('/Listaplatillos/'.$ids);
+        return redirect('/Menu/'.$ids)->with('success','actualizarpb');;
 
 
     }
@@ -161,6 +184,6 @@ class PlatilloController extends Controller
 
         Platillos::destroy($id);
 
-        return redirect('/Listaplatillos/'.$ids);
+        return redirect('/Menu/'.$ids)->with('success','elimino-platillo');
     }
 }

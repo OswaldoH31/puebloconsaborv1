@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Storage;
 
 class PieController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('Admin');
+    }
     /**
      * Display a listing of the resource.
      *

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Logo;
 use App\Models\Pie;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Crypt;
 
 
 class PerfilController extends Controller
@@ -69,15 +71,19 @@ class PerfilController extends Controller
     public function editProveedor(Request $request){
         $datos['pies']=Pie::paginate(1);
         $logos = Logo::all();
+      
+
 
         return view('Proveedor.perfil',$datos,['logos'=>$logos ])->with([
             'users' => $request->user(),
+            'telefono' => Crypt::decryptString($request -> user()->Telefono),
         ]);
 
     }
 
     public function update(ProfileRequest $request ){
-
+        
+        
         return DB::transaction(function () use ($request){
 
             $user = $request->user();
@@ -108,8 +114,11 @@ class PerfilController extends Controller
 
 
     public function updateProveedor(ProfileRequest $request ){
+        
+        
 
         return DB::transaction(function () use ($request){
+            
 
             $user = $request->user();
 

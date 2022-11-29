@@ -37,6 +37,6 @@ class PreguntaController extends Controller
             'user_id' => Auth::user()->id,
         ]);
         
-        return redirect('/');
+        return redirect('/Usuario');
     }
 }

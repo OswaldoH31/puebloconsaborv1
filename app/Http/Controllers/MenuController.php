@@ -14,6 +14,11 @@ use Symfony\Component\Console\Input\Input;
 
 class MenuController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('Proveedor');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -87,14 +92,16 @@ class MenuController extends Controller
 
 
         $Platillos = Local::join('platillos','locals.id', '=' , 'platillos.local_id') 
-        ->select('platillos.local_id','platillos.Nombre','platillos.Costo','platillos.Imagen')
+        ->select('platillos.id','platillos.local_id','platillos.Nombre','platillos.Costo','platillos.Imagen')
         ->where('platillos.local_id','=',$id)
-        ->paginate(2);
+        ->orderBy('id','DESC')
+        ->paginate(5);
 
         $Bebidas = Local::join('bebidas','locals.id', '=' , 'bebidas.local_id') 
-        ->select('bebidas.local_id','bebidas.Nombre','bebidas.Costo','bebidas.Imagen')
+        ->select('bebidas.id','bebidas.local_id','bebidas.Nombre','bebidas.Costo','bebidas.Imagen')
         ->where('bebidas.local_id','=',$id)
-        ->paginate(2);
+        ->orderBy('id','DESC')
+        ->paginate(5);
 
         $Comentarios = Local::join('comentarios','locals.id', '=' , 'comentarios.local_id') 
         ->select('comentarios.local_id','comentarios.Titulo','comentarios.Descripcion','comentarios.Fecha','comentarios.Fecha_Visita')

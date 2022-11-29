@@ -40,7 +40,24 @@ class BebidaController extends Controller
     public function store(Request $request)
     {
         
-        $imagenes = $request->file('Imagen')->store('public/menu');
+        $request->validate(
+            [
+            
+                'B_Nombre' => ['required', 'string','regex:/^[^$%&|<>#="*]+$/'],
+                'B_Costo' => ['required','numeric','regex:/^[\d]{0,11}(\.[\d]{1,2})?$/'],
+                'B_Imagen'=>['required','mimes:jpg,jpeg,png'],
+
+            ],
+            [
+                'B_Nombre.required' =>'El campo es obligatorio',
+                'B_Costo.required' =>'El campo es obligatorio',
+                'B_Costo.numeric' =>'El campo debe ser númerico',
+                'B_Imagen.required' =>'El campo es obligatorio',
+                'B_Imagen.mimes' =>'El campo debe ser un archivo de tipo: jpg, jpeg, png',
+            ]
+        );
+        
+        $imagenes = $request->file('B_Imagen')->store('public/menu');
         $file = Storage::url($imagenes);
 
         $local_id= $request->local_id;
@@ -48,8 +65,8 @@ class BebidaController extends Controller
 
         Bebidas::create([
 
-            'Nombre' => $request->Nombre,
-            'Costo' => $request->Costo,
+            'Nombre' => $request->B_Nombre,
+            'Costo' => $request->B_Costo,
             'Imagen' => $file,
             'local_id' => $request->local_id,
 
@@ -57,7 +74,7 @@ class BebidaController extends Controller
         ]);
 
 
-        return redirect('/Menu/'.$local_id);
+        return redirect('/Menu/'.$local_id)->with('success','Bebida');
     }
 
     /**
@@ -89,10 +106,11 @@ class BebidaController extends Controller
      */
     public function edit($id)
     {
+        $datos['pies']=Pie::paginate(1);
         $logos = Logo::all();
         $bebida = Bebidas::findOrFail($id);
     
-        return view('Proveedor.editarbebida',compact('logos','bebida'));
+        return view('Proveedor.editarbebida',$datos,compact('logos','bebida'));
     }
 
     /**
@@ -104,19 +122,36 @@ class BebidaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+            
+                'B_Nombre' => ['required', 'string'],
+                'B_Costo' => ['required','numeric','regex:/^[\d]{0,11}(\.[\d]{1,2})?$/'],
+                'B_Imagen'=>['mimes:jpg,jpeg,png'],
+
+            ],
+            [
+                'B_Nombre.required' =>'El campo es obligatorio',
+                'B_Costo.required' =>'El campo es obligatorio',
+                'B_Costo.numeric' =>'El campo debe ser númerico',
+                'B_Imagen.required' =>'El campo es obligatorio',
+                'B_Imagen.mimes' =>'El campo debe ser un archivo de tipo: jpg, jpeg, png',
+            ]
+        );
+        
         $ids =  $request->local_id;
         
         $bebida= Bebidas::findOrFail($id);
         
-        $bebida->Nombre = $request->Nombre;
-        $bebida->Costo = $request->Costo;
+        $bebida->Nombre = $request->B_Nombre;
+        $bebida->Costo = $request->B_Costo;
 
-        if($request->hasFile('Imagen')){
+        if($request->hasFile('B_Imagen')){
 
             $foto=Bebidas::findOrFail($id);
             Storage::delete($foto->Imagen);
 
-            $imagenes = $request->file('Imagen')->store('public/menu');
+            $imagenes = $request->file('B_Imagen')->store('public/menu');
             $file = Storage::url($imagenes);
 
             $bebida->Imagen = $file;
@@ -126,7 +161,7 @@ class BebidaController extends Controller
 
         $bebida->save();
 
-        return redirect('/Listabebidas/'.$ids);
+        return redirect('/Menu/'.$ids)->with('success','actualizarpb');
     }
 
     /**
@@ -143,6 +178,6 @@ class BebidaController extends Controller
 
         Bebidas::destroy($id);
 
-        return redirect('/Listabebidas/'.$ids);
+        return redirect('/Menu/'.$ids)->with('success','elimino-bebida');
     }
 }

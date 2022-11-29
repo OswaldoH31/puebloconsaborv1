@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class SliderHuejutlaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('Admin');
+    }
+    
     public function index()
     {
         //
