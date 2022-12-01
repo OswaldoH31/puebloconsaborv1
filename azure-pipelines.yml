@@ -14,6 +14,7 @@ variables:
   phpVersion: 8.0
   buildConfiguration: 'Release'
   releaseBranchName: 'release'
+   
 
 steps:
 - script: |
@@ -39,9 +40,6 @@ stages:
       demands:
       - npm
 
-        variables:
-      wwwrootDir: 'pwa.pueblo.con.sabor.Web/wwwroot'
-      dotnetSdkVersion: '8.x'
 
     steps:
     - task: UseDotNet@2
