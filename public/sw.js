@@ -11,6 +11,18 @@ self.addEventListener("install", function (event) {
 
 const filesToCache = [
     '/',
+    '/Directorio',
+    '/Huejutla',
+    '/Contactanos',
+    '/login',
+    '/css/app.css',
+    '/css/css/all.css',
+    '/css/styleOriginal.css',
+    '/js/app.js',
+    '/js/bootstrap.min.js',
+    'puebloconsabor.png',
+    '/storage/uploads/lG696Wpl9T6bGN2My2cb1AfYvHQxsUdbGkTVek95.png',
+    '/storage/uploads/Huejutla.jpg',
     '/offline.html'
 ];
 
